@@ -24,9 +24,9 @@ namespace SAICVolkswagenVehicleManagementUI.Page
         public LoginPage()
         {
             InitializeComponent();
-            this.BackgroundImage = System.Drawing.Image.FromFile(@"\\192.168.1.10\CuiJ\SAICVolkswagenVehicleManagement\SAICVolkswagenVehicleManagementUI\SAICVolkswagenVehicleManagementUI\Images\图片1.jpg");
+            this.BackgroundImage = System.Drawing.Image.FromFile(@"\\192.168.1.10\CuiJ\SAICVolkswagenVehicleManagement\SAICVolkswagenVehicleManagementUI\SAICVolkswagenVehicleManagementUI\Images\Ganzes Gelaende.jpg");
             //this.BackColor = Color.DeepSkyBlue;
-            this.BackgroundImageLayout = ImageLayout.Zoom;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.DateTimeNow.BackColor = Color.Transparent;
             this.txt_PassWord.PasswordChar = '*';
         }
@@ -56,7 +56,6 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                 case "Sunday": weekStr = "星期日"; break;
                 default: break;
             }
-            link_ReLoad_LinkClicked(null, null);
             asc.controllInitializeSize(this);
         }
 
@@ -74,55 +73,55 @@ namespace SAICVolkswagenVehicleManagementUI.Page
         }
         #endregion
 
-        #region 编辑验证码图片
-        /// <summary>
-        /// 编辑验证码图片
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        string str = string.Empty;
-        private void link_ReLoad_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Random random = new Random();
-            //随机产生5个字符串
-            str = string.Empty;
-            for (int i = 0; i < 5; i++)
-            {
-                int j = random.Next(64, 90);
-                str = str + (char)j;
-            }
-            //创建图片
-            Bitmap bmp = new Bitmap(120, 30);
-            //创建GDI对象
-            Graphics g = Graphics.FromImage(bmp);
-            //循环画字符串
-            for (int i = 0; i < str.Length; i++)
-            {
-                Point p = new Point(i * 20, 0);
-                //随机字体
-                string[] fonts = { "宋体", "黑体", "微软雅黑", "隶属", "仿宋" };
-                //随机颜色
-                Color[] colors = { Color.Red, Color.Aquamarine, Color.Blue, Color.Yellow, Color.Black, Color.Pink };
-                //画字符串
-                g.DrawString(str[i].ToString(), new Font(fonts[random.Next(0, fonts.Length)], 20, FontStyle.Bold), new SolidBrush(colors[random.Next(0, colors.Length)]), p);
-            }
-            //画线
-            for (int i = 0; i < 10; i++)
-            {
-                Point p1 = new Point(random.Next(0, bmp.Width), random.Next(0, bmp.Height));
-                Point p2 = new Point(random.Next(0, bmp.Width), random.Next(0, bmp.Height));
-                g.DrawLine(new Pen(Color.Green), p1, p2);
-            }
-            //画像素点
-            for (int i = 0; i < 200; i++)
-            {
-                Point p = new Point(random.Next(0, bmp.Width), random.Next(0, bmp.Height));
-                bmp.SetPixel(p.X, p.Y, Color.Black);
-            }
-            //将图片镶嵌到picturebox
-            this.Pic.Image = bmp;
-        }
-        #endregion
+        //#region 编辑验证码图片
+        ///// <summary>
+        ///// 编辑验证码图片
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //string str = string.Empty;
+        //private void link_ReLoad_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    Random random = new Random();
+        //    //随机产生5个字符串
+        //    str = string.Empty;
+        //    for (int i = 0; i < 5; i++)
+        //    {
+        //        int j = random.Next(64, 90);
+        //        str = str + (char)j;
+        //    }
+        //    //创建图片
+        //    Bitmap bmp = new Bitmap(120, 30);
+        //    //创建GDI对象
+        //    Graphics g = Graphics.FromImage(bmp);
+        //    //循环画字符串
+        //    for (int i = 0; i < str.Length; i++)
+        //    {
+        //        Point p = new Point(i * 20, 0);
+        //        //随机字体
+        //        string[] fonts = { "宋体", "黑体", "微软雅黑", "隶属", "仿宋" };
+        //        //随机颜色
+        //        Color[] colors = { Color.Red, Color.Aquamarine, Color.Blue, Color.Yellow, Color.Black, Color.Pink };
+        //        //画字符串
+        //        g.DrawString(str[i].ToString(), new Font(fonts[random.Next(0, fonts.Length)], 20, FontStyle.Bold), new SolidBrush(colors[random.Next(0, colors.Length)]), p);
+        //    }
+        //    //画线
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        Point p1 = new Point(random.Next(0, bmp.Width), random.Next(0, bmp.Height));
+        //        Point p2 = new Point(random.Next(0, bmp.Width), random.Next(0, bmp.Height));
+        //        g.DrawLine(new Pen(Color.Green), p1, p2);
+        //    }
+        //    //画像素点
+        //    for (int i = 0; i < 200; i++)
+        //    {
+        //        Point p = new Point(random.Next(0, bmp.Width), random.Next(0, bmp.Height));
+        //        bmp.SetPixel(p.X, p.Y, Color.Black);
+        //    }
+        //    //将图片镶嵌到picturebox
+        //    this.Pic.Image = bmp;
+        //}
+        //#endregion
 
         #region 点击登录事件
         /// <summary>
@@ -137,7 +136,7 @@ namespace SAICVolkswagenVehicleManagementUI.Page
             Data data = JsonConvert.DeserializeObject<Data>(strUserInfo);
             List<R_UserInfo> userList = JsonConvert.DeserializeObject<List<R_UserInfo>>(data.Result.ToString());
             R_UserInfo model = userList.Where(s => s.UserName == txt_User.Text && s.UserPassWord == txt_PassWord.Text).FirstOrDefault();
-            if(model == null)
+            if (model == null)
             {
                 MessageBox.Show("没有当前用户，请重新注册!!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 HomePage homePage = new HomePage();
@@ -156,55 +155,43 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                         #region 登录成功
                         if (txt_PassWord.Text == model.UserPassWord)
                         {
-                            if (string.IsNullOrEmpty(txt_VerificationCode.Text))
+
+
+
+
+                            //记住账号密码 自动登录
+                            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                            cfa.AppSettings.Settings["userName"].Value = this.txt_User.Text; // 账号（默认记住）
+                            if (this.loginCheckBoxIs.Checked)
                             {
-                                MessageBox.Show("验证码不能为空", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                return;
+                                cfa.AppSettings.Settings["autoLogin"].Value = "true";
+                                cfa.AppSettings.Settings["rememberMe"].Value = "true";
+                                cfa.AppSettings.Settings["passWord"].Value = this.txt_PassWord.Text;
                             }
                             else
                             {
-                                if (this.txt_VerificationCode.Text.Trim().ToUpper() != str.ToUpper())
+                                if (this.loginCheckBoxUne.Checked)
                                 {
-                                    MessageBox.Show("验证码输入不正确!!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    this.txt_VerificationCode.Clear();
-                                    link_ReLoad_LinkClicked(null, null);
-                                    return;
+                                    cfa.AppSettings.Settings["autoLogin"].Value = "false"; // 自动登录
+                                    cfa.AppSettings.Settings["rememberMe"].Value = "true"; // 自动赋值
+                                    cfa.AppSettings.Settings["passWord"].Value = this.txt_PassWord.Text; // 密码
                                 }
                                 else
                                 {
-                                    //记住账号密码 自动登录
-                                    Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                                    cfa.AppSettings.Settings["userName"].Value = this.txt_User.Text; // 账号（默认记住）
-                                    if (this.loginCheckBoxIs.Checked)
-                                    {
-                                        cfa.AppSettings.Settings["autoLogin"].Value = "true";
-                                        cfa.AppSettings.Settings["rememberMe"].Value = "true";
-                                        cfa.AppSettings.Settings["passWord"].Value = this.txt_PassWord.Text;
-                                    }
-                                    else
-                                    {
-                                        if (this.loginCheckBoxUne.Checked)
-                                        {
-                                            cfa.AppSettings.Settings["autoLogin"].Value = "false"; // 自动登录
-                                            cfa.AppSettings.Settings["rememberMe"].Value = "true"; // 自动赋值
-                                            cfa.AppSettings.Settings["passWord"].Value = this.txt_PassWord.Text; // 密码
-                                        }
-                                        else
-                                        {
-                                            cfa.AppSettings.Settings["autoLogin"].Value = "false"; // 自动登录
-                                            cfa.AppSettings.Settings["rememberMe"].Value = "false"; // 自动赋值
-                                            cfa.AppSettings.Settings["passWord"].Value = this.txt_PassWord.Text; // 密码
-                                        }
-                                    }
-                                    cfa.Save();//保存数据
-                                    MessageBox.Show("登录成功", "恭喜", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                    this.Hide();
-                                    //登录成功进去首页
-                                    FirstPage firstPage = new FirstPage(model);
-                                    firstPage.Show();
+                                    cfa.AppSettings.Settings["autoLogin"].Value = "false"; // 自动登录
+                                    cfa.AppSettings.Settings["rememberMe"].Value = "false"; // 自动赋值
+                                    cfa.AppSettings.Settings["passWord"].Value = this.txt_PassWord.Text; // 密码
                                 }
                             }
+                            cfa.Save();//保存数据
+                            MessageBox.Show("登录成功", "恭喜", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            this.Hide();
+                            //登录成功进去首页
+                            FirstPage firstPage = new FirstPage(model);
+                            firstPage.Show();
+
                         }
+ 
                         else
                         {
                             MessageBox.Show("密码错误，请重新输入!!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error); return;

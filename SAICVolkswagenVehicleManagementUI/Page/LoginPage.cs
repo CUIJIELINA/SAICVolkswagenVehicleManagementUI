@@ -24,9 +24,10 @@ namespace SAICVolkswagenVehicleManagementUI.Page
         public LoginPage()
         {
             InitializeComponent();
-            this.BackgroundImage = System.Drawing.Image.FromFile(@"\\192.168.1.10\CuiJ\SAICVolkswagenVehicleManagement\SAICVolkswagenVehicleManagementUI\SAICVolkswagenVehicleManagementUI\Images\Ganzes Gelaende.jpg");
+            this.BackgroundImage = System.Drawing.Image.FromFile(@"\\192.168.1.10\CuiJ\SAICVolkswagenVehicleManagement\SAICVolkswagenVehicleManagementUI\SAICVolkswagenVehicleManagementUI\Images\微信图片2.jpg");
             //this.BackColor = Color.DeepSkyBlue;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.BackgroundImageLayout = ImageLayout.Zoom;
+
             this.DateTimeNow.BackColor = Color.Transparent;
             this.txt_PassWord.PasswordChar = '*';
         }

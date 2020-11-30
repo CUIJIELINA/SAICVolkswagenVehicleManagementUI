@@ -64,7 +64,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("华文行楷", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(265, 56);
+            this.label1.Location = new System.Drawing.Point(265, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(303, 33);
             this.label1.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.lab_User.AutoSize = true;
             this.lab_User.BackColor = System.Drawing.Color.Transparent;
-            this.lab_User.Location = new System.Drawing.Point(287, 155);
+            this.lab_User.Location = new System.Drawing.Point(287, 139);
             this.lab_User.Name = "lab_User";
             this.lab_User.Size = new System.Drawing.Size(65, 12);
             this.lab_User.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             this.lab_PassWord.AutoSize = true;
             this.lab_PassWord.BackColor = System.Drawing.Color.Transparent;
-            this.lab_PassWord.Location = new System.Drawing.Point(287, 195);
+            this.lab_PassWord.Location = new System.Drawing.Point(287, 179);
             this.lab_PassWord.Name = "lab_PassWord";
             this.lab_PassWord.Size = new System.Drawing.Size(65, 12);
             this.lab_PassWord.TabIndex = 2;
@@ -93,7 +93,7 @@
             // txt_User
             // 
             this.txt_User.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_User.Location = new System.Drawing.Point(384, 150);
+            this.txt_User.Location = new System.Drawing.Point(384, 134);
             this.txt_User.Multiline = true;
             this.txt_User.Name = "txt_User";
             this.txt_User.Size = new System.Drawing.Size(100, 20);
@@ -104,7 +104,7 @@
             this.btn_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Login.ForeColor = System.Drawing.Color.White;
-            this.btn_Login.Location = new System.Drawing.Point(280, 298);
+            this.btn_Login.Location = new System.Drawing.Point(280, 282);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 23);
             this.btn_Login.TabIndex = 5;
@@ -117,7 +117,7 @@
             this.btn_Register.BackColor = System.Drawing.Color.Red;
             this.btn_Register.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Register.ForeColor = System.Drawing.Color.White;
-            this.btn_Register.Location = new System.Drawing.Point(445, 298);
+            this.btn_Register.Location = new System.Drawing.Point(445, 282);
             this.btn_Register.Name = "btn_Register";
             this.btn_Register.Size = new System.Drawing.Size(75, 23);
             this.btn_Register.TabIndex = 5;
@@ -128,7 +128,7 @@
             // txt_PassWord
             // 
             this.txt_PassWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_PassWord.Location = new System.Drawing.Point(384, 190);
+            this.txt_PassWord.Location = new System.Drawing.Point(384, 174);
             this.txt_PassWord.Multiline = true;
             this.txt_PassWord.Name = "txt_PassWord";
             this.txt_PassWord.Size = new System.Drawing.Size(100, 21);
@@ -138,7 +138,7 @@
             // 
             this.loginCheckBoxIs.AutoSize = true;
             this.loginCheckBoxIs.BackColor = System.Drawing.Color.Transparent;
-            this.loginCheckBoxIs.Location = new System.Drawing.Point(466, 256);
+            this.loginCheckBoxIs.Location = new System.Drawing.Point(466, 240);
             this.loginCheckBoxIs.Name = "loginCheckBoxIs";
             this.loginCheckBoxIs.Size = new System.Drawing.Size(72, 16);
             this.loginCheckBoxIs.TabIndex = 7;
@@ -149,7 +149,7 @@
             // 
             this.loginCheckBoxUne.AutoSize = true;
             this.loginCheckBoxUne.BackColor = System.Drawing.Color.Transparent;
-            this.loginCheckBoxUne.Location = new System.Drawing.Point(299, 256);
+            this.loginCheckBoxUne.Location = new System.Drawing.Point(299, 240);
             this.loginCheckBoxUne.Name = "loginCheckBoxUne";
             this.loginCheckBoxUne.Size = new System.Drawing.Size(72, 16);
             this.loginCheckBoxUne.TabIndex = 8;
@@ -161,7 +161,7 @@
             this.link_UpdatePassWord.AutoSize = true;
             this.link_UpdatePassWord.BackColor = System.Drawing.Color.Transparent;
             this.link_UpdatePassWord.ForeColor = System.Drawing.Color.Black;
-            this.link_UpdatePassWord.Location = new System.Drawing.Point(491, 198);
+            this.link_UpdatePassWord.Location = new System.Drawing.Point(491, 182);
             this.link_UpdatePassWord.Name = "link_UpdatePassWord";
             this.link_UpdatePassWord.Size = new System.Drawing.Size(53, 12);
             this.link_UpdatePassWord.TabIndex = 9;
@@ -175,6 +175,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.link_UpdatePassWord);
             this.Controls.Add(this.loginCheckBoxUne);

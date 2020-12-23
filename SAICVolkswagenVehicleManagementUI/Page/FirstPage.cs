@@ -157,6 +157,15 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                 panel_Content.Controls.Add(homePage);
                 homePage.Show();
             }
+            if (e.Node.Name == "User")
+            {
+                UserShowPage userShowPage = new UserShowPage();
+                userShowPage.TopLevel = false;
+                userShowPage.FormBorderStyle = FormBorderStyle.None;
+                userShowPage.WindowState = FormWindowState.Maximized;
+                panel_Content.Controls.Add(userShowPage);
+                userShowPage.Show();
+            }
         }
     }
 }

@@ -28,7 +28,8 @@ namespace SAICVolkswagenVehicleManagementUI.Page
             InitializeComponent();
             this.BackgroundImage = Image.FromFile(@"\\192.168.1.9\CuiJ\SAICVolkswagenVehicleManagement\SAICVolkswagenVehicleManagementUI\SAICVolkswagenVehicleManagementUI\Images\图片1.jpg");
             this.BackgroundImageLayout = ImageLayout.Zoom;
-            this.datagrid_UserInfo.DataSource = GetUserInfo();
+            //this.datagrid_UserInfo.AutoGenerateColumns = false;
+            //this.datagrid_UserInfo.DataSource = GetUserInfo();
         }
 
         /// <summary>
@@ -95,8 +96,7 @@ namespace SAICVolkswagenVehicleManagementUI.Page
             if(dialogResult == DialogResult.Yes)
             {
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
-                LoginPage loginPage = new LoginPage();
-                loginPage.Show();
+                this.Close();
             }
         }
         #endregion
@@ -113,7 +113,6 @@ namespace SAICVolkswagenVehicleManagementUI.Page
             List<Permission> permissions = JsonConvert.DeserializeObject<List<Permission>>(data.Result.ToString());
             return permissions;
         }
-
         /// <summary>
         /// 绑定TreeView数据信息
         /// </summary>
@@ -126,10 +125,37 @@ namespace SAICVolkswagenVehicleManagementUI.Page
             foreach (var item in childList)
             {
                 TreeNode node = new TreeNode();
-                node.Name = item.PermissionID.ToString();
+                node.Name = item.PermissionUrl;
                 node.Text = item.PermissionName;
                 parNode.Nodes.Add(node);
                 Bind(node,permissions,item.PermissionID);
+            }
+        }
+
+        /// <summary>
+        /// 点击treeview菜单栏
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Menu_treeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(e.Node.Name == "InsertVehicle")
+            {
+                InsertVehiclePage insertVehiclePage = new InsertVehiclePage();
+                insertVehiclePage.TopLevel = false;
+                insertVehiclePage.FormBorderStyle = FormBorderStyle.None;
+                insertVehiclePage.WindowState = FormWindowState.Maximized;
+                panel_Content.Controls.Add(insertVehiclePage);
+                insertVehiclePage.Show();
+            }
+            if(e.Node.Name == "InsertUser")
+            {
+                HomePage homePage = new HomePage();
+                homePage.TopLevel = false;
+                homePage.FormBorderStyle = FormBorderStyle.None;
+                homePage.WindowState = FormWindowState.Maximized;
+                panel_Content.Controls.Add(homePage);
+                homePage.Show();
             }
         }
     }

@@ -22,7 +22,7 @@ namespace SAICVolkswagenVehicleManagementUI
         public HomePage()
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile(@"\\192.168.1.10\CuiJ\SAICVolkswagenVehicleManagement\SAICVolkswagenVehicleManagementUI\SAICVolkswagenVehicleManagementUI\Images\图片1.jpg");
+            this.BackgroundImage = Image.FromFile(@"\\192.168.1.9\CuiJ\SAICVolkswagenVehicleManagement\SAICVolkswagenVehicleManagementUI\SAICVolkswagenVehicleManagementUI\Images\微信图片2.jpg");
             this.BackgroundImageLayout = ImageLayout.Zoom;
 
         }

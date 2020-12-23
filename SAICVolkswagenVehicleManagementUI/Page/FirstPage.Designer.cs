@@ -38,14 +38,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NowDateTimer = new System.Windows.Forms.Timer(this.components);
             this.Menu_treeView = new System.Windows.Forms.TreeView();
-            this.datagrid_UserInfo = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_Content = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagrid_UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.link_CaiDan);
             this.panel1.Controls.Add(this.link_TuiChu);
             this.panel1.Controls.Add(this.link_PutPwd);
@@ -54,7 +55,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 49);
+            this.panel1.Size = new System.Drawing.Size(1203, 49);
             this.panel1.TabIndex = 0;
             // 
             // link_CaiDan
@@ -62,7 +63,7 @@
             this.link_CaiDan.AutoSize = true;
             this.link_CaiDan.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.link_CaiDan.LinkColor = System.Drawing.Color.White;
-            this.link_CaiDan.Location = new System.Drawing.Point(733, 19);
+            this.link_CaiDan.Location = new System.Drawing.Point(1104, 19);
             this.link_CaiDan.Name = "link_CaiDan";
             this.link_CaiDan.Size = new System.Drawing.Size(53, 12);
             this.link_CaiDan.TabIndex = 6;
@@ -74,7 +75,7 @@
             this.link_TuiChu.AutoSize = true;
             this.link_TuiChu.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.link_TuiChu.LinkColor = System.Drawing.Color.White;
-            this.link_TuiChu.Location = new System.Drawing.Point(675, 19);
+            this.link_TuiChu.Location = new System.Drawing.Point(1046, 19);
             this.link_TuiChu.Name = "link_TuiChu";
             this.link_TuiChu.Size = new System.Drawing.Size(53, 12);
             this.link_TuiChu.TabIndex = 5;
@@ -87,7 +88,7 @@
             this.link_PutPwd.AutoSize = true;
             this.link_PutPwd.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.link_PutPwd.LinkColor = System.Drawing.Color.White;
-            this.link_PutPwd.Location = new System.Drawing.Point(617, 19);
+            this.link_PutPwd.Location = new System.Drawing.Point(988, 19);
             this.link_PutPwd.Name = "link_PutPwd";
             this.link_PutPwd.Size = new System.Drawing.Size(53, 12);
             this.link_PutPwd.TabIndex = 4;
@@ -99,7 +100,7 @@
             this.link_Back.AutoSize = true;
             this.link_Back.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.link_Back.LinkColor = System.Drawing.Color.White;
-            this.link_Back.Location = new System.Drawing.Point(561, 19);
+            this.link_Back.Location = new System.Drawing.Point(932, 19);
             this.link_Back.Name = "link_Back";
             this.link_Back.Size = new System.Drawing.Size(53, 12);
             this.link_Back.TabIndex = 3;
@@ -137,32 +138,37 @@
             this.Menu_treeView.ItemHeight = 20;
             this.Menu_treeView.Location = new System.Drawing.Point(0, 49);
             this.Menu_treeView.Name = "Menu_treeView";
-            this.Menu_treeView.Size = new System.Drawing.Size(121, 401);
+            this.Menu_treeView.Size = new System.Drawing.Size(121, 623);
             this.Menu_treeView.TabIndex = 1;
+            this.Menu_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Menu_treeView_AfterSelect);
             // 
-            // datagrid_UserInfo
+            // panel2
             // 
-            this.datagrid_UserInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid_UserInfo.Location = new System.Drawing.Point(118, 49);
-            this.datagrid_UserInfo.Name = "datagrid_UserInfo";
-            this.datagrid_UserInfo.RowTemplate.Height = 23;
-            this.datagrid_UserInfo.Size = new System.Drawing.Size(682, 401);
-            this.datagrid_UserInfo.TabIndex = 2;
+            this.panel2.Location = new System.Drawing.Point(118, 49);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(682, 401);
+            this.panel2.TabIndex = 3;
+            // 
+            // panel_Content
+            // 
+            this.panel_Content.Location = new System.Drawing.Point(121, 49);
+            this.panel_Content.Name = "panel_Content";
+            this.panel_Content.Size = new System.Drawing.Size(1082, 623);
+            this.panel_Content.TabIndex = 2;
             // 
             // FirstPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.datagrid_UserInfo);
+            this.ClientSize = new System.Drawing.Size(1204, 673);
+            this.Controls.Add(this.panel_Content);
             this.Controls.Add(this.Menu_treeView);
             this.Controls.Add(this.panel1);
             this.Name = "FirstPage";
-            this.Text = "上汽大众道路试验数字化管理平台";
+            this.Text = "道路试验数字化平台";
             this.Load += new System.EventHandler(this.FirstPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagrid_UserInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,6 +184,7 @@
         private System.Windows.Forms.LinkLabel link_PutPwd;
         private System.Windows.Forms.Timer NowDateTimer;
         private System.Windows.Forms.TreeView Menu_treeView;
-        private System.Windows.Forms.DataGridView datagrid_UserInfo;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_Content;
     }
 }

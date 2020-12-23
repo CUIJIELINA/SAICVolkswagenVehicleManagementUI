@@ -143,7 +143,7 @@
             this.Controls.Add(this.lab_User);
             this.Controls.Add(this.label1);
             this.Name = "UpdatePassWordPage";
-            this.Text = "上汽大众道路试验数字化管理平台";
+            this.Text = "道路试验数字化平台";
             this.Load += new System.EventHandler(this.UpdatePassWordPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

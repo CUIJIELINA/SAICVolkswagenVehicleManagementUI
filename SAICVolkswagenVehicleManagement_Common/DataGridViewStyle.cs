@@ -45,12 +45,12 @@ namespace SAICVolkswagenVehicleManagement_Common
             dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             //列标题的边框样式
             dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("新宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dgv.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dgv.ColumnHeadersHeight = 28;
             //行的边框样式
             dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dgv.DefaultCellStyle.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font("新宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             //this.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             //this.DefaultCellStyle.BackColor = System.Drawing.SystemColors.ButtonFace;
             dgv.RowTemplate.DividerHeight = 1;
@@ -58,7 +58,7 @@ namespace SAICVolkswagenVehicleManagement_Common
             dgv.EnableHeadersVisualStyles = false;
 
             //自动调整列宽
-            // this.AutoResizeColumns();
+            //this.AutoResizeColumns();
         }
         /// 
 

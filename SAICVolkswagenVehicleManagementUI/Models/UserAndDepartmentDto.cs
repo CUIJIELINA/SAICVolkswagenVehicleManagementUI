@@ -20,5 +20,7 @@ namespace SAICVolkswagenVehicleManagementUI.Models
         public string E_Mail { get; set; }
         public DateTime Birthday { get; set; }
         public DateTime CreateDate { get; set; }
+        public int RoleID { get; set; }
+        public string RoleName { get; set; }
     }
 }

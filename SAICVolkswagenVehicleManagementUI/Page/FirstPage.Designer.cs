@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.link_CaiDan = new System.Windows.Forms.LinkLabel();
             this.link_TuiChu = new System.Windows.Forms.LinkLabel();
             this.link_PutPwd = new System.Windows.Forms.LinkLabel();
@@ -38,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.NowDateTimer = new System.Windows.Forms.Timer(this.components);
             this.Menu_treeView = new System.Windows.Forms.TreeView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel_Content = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,13 @@
             this.panel1.Size = new System.Drawing.Size(1203, 49);
             this.panel1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(118, 49);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(682, 401);
+            this.panel2.TabIndex = 3;
+            // 
             // link_CaiDan
             // 
             this.link_CaiDan.AutoSize = true;
@@ -69,6 +76,7 @@
             this.link_CaiDan.TabIndex = 6;
             this.link_CaiDan.TabStop = true;
             this.link_CaiDan.Text = "菜单隐藏";
+            this.link_CaiDan.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_CaiDan_LinkClicked);
             // 
             // link_TuiChu
             // 
@@ -141,13 +149,6 @@
             this.Menu_treeView.Size = new System.Drawing.Size(121, 623);
             this.Menu_treeView.TabIndex = 1;
             this.Menu_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Menu_treeView_AfterSelect);
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(118, 49);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(682, 401);
-            this.panel2.TabIndex = 3;
             // 
             // panel_Content
             // 

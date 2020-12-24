@@ -46,6 +46,7 @@
     <Compile Include="DataGridViewStyle.cs" />
     <Compile Include="Enum\AddressType.cs" />
     <Compile Include="Enum\CarType.cs" />
+    <Compile Include="Enum\DataGridViewAutoSizeColumnMode.cs" />
     <Compile Include="Enum\DriverState.cs" />
     <Compile Include="Enum\DriverType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

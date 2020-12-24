@@ -18,6 +18,15 @@ namespace SAICVolkswagenVehicleManagementUI
 {
     public partial class HomePage : Form
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // 用双缓冲绘制窗口的所有子控件
+                return cp;
+            }
+        }
         HttpClientHelper httpClient = new HttpClientHelper("http://localhost:50386");
         public HomePage()
         {
@@ -212,9 +221,6 @@ namespace SAICVolkswagenVehicleManagementUI
             if (data.Result.ToString() == "1")
             {
                 MessageBox.Show("注册成功", "恭喜", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
-                LoginPage loginPage = new LoginPage();
-                loginPage.Show();
             }
             else
             {

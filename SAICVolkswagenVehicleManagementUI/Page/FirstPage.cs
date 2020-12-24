@@ -167,5 +167,17 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                 userShowPage.Show();
             }
         }
+        /// <summary>
+        /// 菜单的隐藏和显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void link_CaiDan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(this.Menu_treeView.Visible == true)
+                this.Menu_treeView.Visible = false;
+            else
+                this.Menu_treeView.Visible = true;
+        }
     }
 }

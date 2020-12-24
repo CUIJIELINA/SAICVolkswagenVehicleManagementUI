@@ -17,6 +17,15 @@ namespace SAICVolkswagenVehicleManagementUI.Page
 {
     public partial class LoginPage : Form
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000; // 用双缓冲绘制窗口的所有子控件
+                return cp;
+            }
+        }
         #region 页面构造函数
         /// <summary>
         /// 页面构造函数

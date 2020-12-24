@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbilityInfo.cs" />
     <Compile Include="CarBrandInfo.cs" />
     <Compile Include="CarInfo.cs" />
     <Compile Include="DepartmentInfo.cs" />

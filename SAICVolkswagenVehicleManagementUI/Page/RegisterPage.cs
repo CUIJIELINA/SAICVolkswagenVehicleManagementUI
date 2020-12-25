@@ -18,6 +18,9 @@ namespace SAICVolkswagenVehicleManagementUI
 {
     public partial class HomePage : Form
     {
+        HttpClientHelper httpClient = new HttpClientHelper("http://localhost:50386");
+
+        #region 双缓存技术
         protected override CreateParams CreateParams
         {
             get
@@ -27,7 +30,9 @@ namespace SAICVolkswagenVehicleManagementUI
                 return cp;
             }
         }
-        HttpClientHelper httpClient = new HttpClientHelper("http://localhost:50386");
+        #endregion
+
+        #region 构造函数
         public HomePage()
         {
             InitializeComponent();
@@ -35,6 +40,7 @@ namespace SAICVolkswagenVehicleManagementUI
             this.BackgroundImageLayout = ImageLayout.Zoom;
 
         }
+        #endregion
 
         #region 获取验证码
         /// <summary>
@@ -115,9 +121,24 @@ namespace SAICVolkswagenVehicleManagementUI
         /// <param name="e"></param>
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            LoginPage loginPage = new LoginPage();
-            this.Hide();
-            loginPage.Show();
+            this.txt_Name.Text = "";
+        }
+        #endregion
+
+        #region 清空所有输入的值
+        public void Clean(Form form)
+        {
+            for (int i = 0; i < form.Controls.Count; i++)
+            {
+                //清空TextBox值
+                if (Controls[i].GetType() == typeof(TextBox))
+                {
+                    ((TextBox)Controls[i]).Text = "";
+                }
+                //其余控件以此类推
+                //清空所有控件的值
+                Controls[i].Text = "";
+            }
         }
         #endregion
 

@@ -57,6 +57,7 @@
     <Compile Include="TestSiteAndCar.cs" />
     <Compile Include="TestSiteInfo.cs" />
     <Compile Include="User_Role.cs" />
+    <Compile Include="VehicleParameters.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAICVolkswagenVehicleManagement_Common\SAICVolkswagenVehicleManagement_Common.csproj">

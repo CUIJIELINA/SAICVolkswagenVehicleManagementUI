@@ -27,5 +27,10 @@ namespace SAICVolkswagenVehicleManagementUI.Models
         public double MileageToRun { get; set; }
         public string RemainingFrequency { get; set; }
         public string DriverAbilityName { get; set; }
+        public string strOdometer { get; set; }
+        public string strCurrentMileage { get; set; }
+        public string strRemainingMileage { get; set; }
+        public string strMileageToRun { get; set; }
+        public string strRemainingFrequency { get; set; }
     }
 }

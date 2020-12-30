@@ -18,6 +18,8 @@ namespace SAICVolkswagenVehicleManagementUI.Page
     {
         //实例化HttpClient
         HttpClientHelper httpClient = new HttpClientHelper("http://localhost:50386");
+        private TimeSpan timeSpan;
+        private double dateweek;
 
         #region 双缓存技术
         protected override CreateParams CreateParams
@@ -138,8 +140,25 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                 TyreSize = txt_TyreSize.Text.Trim(),
                 Odometer = double.Parse(txt_Odometer.Text.Trim()),
                 MileageToRun = double.Parse(txt_MileageToRun.Text.Trim()),
-                CurrentMileage = double.Parse(txt_CurrentMileage.Text.Trim())
+                CurrentMileage = double.Parse(txt_CurrentMileage.Text.Trim()),
+                RemainingMileage = double.Parse(txt_RemainingMileage.Text.Trim()),
+                Remark = txt_Remark.Text.Trim(),
+                StateDate = DateTime.Parse(date_StartDate.Text.Trim()),
+                EndDate = DateTime.Parse(date_EndDate.Text.Trim()),
+                RemainingFrequency = txt_RemainingFrequency.Text.Trim()
             };
+            //通过HttpClient获取到Post传过来的所有数据
+            string strPostVehicleAndAbility = httpClient.Post("/VehicleParameters/InsertVehicleParameters", vehicles);
+            //转换成data对象
+            Data data = JsonConvert.DeserializeObject<Data>(strPostVehicleAndAbility);
+            if(data.Result.ToString() == "1")
+            {
+                MessageBox.Show("添加成功", "恭喜", MessageBoxButtons.OK, MessageBoxIcon.Information); return;
+            }
+            else
+            {
+                MessageBox.Show("添加失败", "警告", MessageBoxButtons.OK, MessageBoxIcon.Information); return;
+            }
         }
         #endregion
 
@@ -229,7 +248,62 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                 lab_CurrentMileage.Text = "*"; return;
             }
         }
+
+        private void txt_RemainingMileage_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_RemainingMileage.Text.Trim()))
+            {
+                lab_RemainingMileage.Text = "*"; return;
+            }
+        }
         #endregion
 
+        #region 所有的失去焦点事件
+        /// <summary>
+        /// 当前里程失去焦点事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_CurrentMileage_MouseLeave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_MileageToRun.Text.Trim()) && !string.IsNullOrEmpty(txt_CurrentMileage.Text.Trim()))
+            {
+                //计算剩余里程
+                txt_RemainingMileage.Text = (double.Parse(txt_MileageToRun.Text.Trim()) - double.Parse(txt_CurrentMileage.Text.Trim())).ToString();
+                //计算剩余每周所需班次
+                txt_RemainingFrequency.Text = Math.Round((double.Parse(txt_RemainingMileage.Text.Trim()) / dateweek / 354), 1).ToString();
+            }
+            else
+            {
+                lab_RemainingMileage.Text = "请输入应跑里程和当前里程"; 
+                lab_RemainingFrequency.Text = "请输入应跑里程和当前里程";
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 计算周期的失去焦点事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void date_EndDate_MouseLeave(object sender, EventArgs e)
+        {
+            DateTime start = DateTime.Parse(date_StartDate.Text);
+            DateTime end = DateTime.Parse(date_EndDate.Text);
+            //计算两个时间的时间差
+            timeSpan = end.Subtract(start);
+            var doubleWeek = timeSpan.Days / 7.0;
+            //保留一位小数
+            dateweek = Math.Round(doubleWeek, 1);
+            //计算两个时间的周期
+            string week = (dateweek + "/周");
+            txt_Week.Text = week;
+        }
+        #endregion
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

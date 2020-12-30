@@ -76,6 +76,7 @@
     <Compile Include="Common\JsonContent.cs" />
     <Compile Include="Common\ListConversionDatatable.cs" />
     <Compile Include="Common\MailVeriCodeClass.cs" />
+    <Compile Include="Models\DriverInfoDto.cs" />
     <Compile Include="Models\UserAndDepartmentDto.cs" />
     <Compile Include="Models\VehicleAndAbilityDto.cs" />
     <Compile Include="Page\FirstPage.cs">
@@ -114,6 +115,12 @@
     <Compile Include="Page\UserShowPage.Designer.cs">
       <DependentUpon>UserShowPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Page\VehicleShowPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Page\VehicleShowPage.Designer.cs">
+      <DependentUpon>VehicleShowPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Page\FirstPage.resx">
@@ -133,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Page\UserShowPage.resx">
       <DependentUpon>UserShowPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Page\VehicleShowPage.resx">
+      <DependentUpon>VehicleShowPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

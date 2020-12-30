@@ -20,7 +20,7 @@ namespace SAICVolkswagenVehicleManagementUI.Page
         {
             InitializeComponent();
         }
-
+        AutoSizeFormClass asc = new AutoSizeFormClass();
         private R_UserInfo userInfo;
         public FirstPage(R_UserInfo _userInfo)
         {
@@ -67,11 +67,14 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                 case "Sunday": weekStr = "星期日"; break;
                 default: break;
             }
+            asc.controllInitializeSize(this);
             var topNode = new TreeNode();
             topNode.Name = "0";
             topNode.Text = "道路试验数字化";
             this.Menu_treeView.Nodes.Add(topNode);
             Bind(topNode,GetPermissions(),0);
+
+
         }
 
         /// <summary>
@@ -165,6 +168,15 @@ namespace SAICVolkswagenVehicleManagementUI.Page
                 userShowPage.WindowState = FormWindowState.Maximized;
                 panel_Content.Controls.Add(userShowPage);
                 userShowPage.Show();
+            }
+            if (e.Node.Name == "Vehicle")
+            {
+                VehicleShowPage vehicleShowPage = new VehicleShowPage();
+                vehicleShowPage.TopLevel = false;
+                vehicleShowPage.FormBorderStyle = FormBorderStyle.None;
+                vehicleShowPage.WindowState = FormWindowState.Maximized;
+                panel_Content.Controls.Add(vehicleShowPage);
+                vehicleShowPage.Show();
             }
         }
         /// <summary>

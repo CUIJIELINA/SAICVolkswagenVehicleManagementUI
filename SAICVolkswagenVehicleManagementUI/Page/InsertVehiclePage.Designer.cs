@@ -49,7 +49,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txt_TyreSize = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txt_Remark = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txt_Odometer = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -72,6 +72,14 @@
             this.lab_Odometer = new System.Windows.Forms.Label();
             this.lab_MileageToRun = new System.Windows.Forms.Label();
             this.lab_CurrentMileage = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.date_StartDate = new System.Windows.Forms.DateTimePicker();
+            this.date_EndDate = new System.Windows.Forms.DateTimePicker();
+            this.txt_Week = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lab_RemainingMileage = new System.Windows.Forms.Label();
+            this.lab_RemainingFrequency = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -126,6 +134,8 @@
             // cmb_Ability
             // 
             this.cmb_Ability.FormattingEnabled = true;
+            this.cmb_Ability.Items.AddRange(new object[] {
+            "--请选择--"});
             this.cmb_Ability.Location = new System.Drawing.Point(327, 193);
             this.cmb_Ability.Name = "cmb_Ability";
             this.cmb_Ability.Size = new System.Drawing.Size(121, 20);
@@ -146,7 +156,7 @@
             this.btn_Insert.BackColor = System.Drawing.Color.Red;
             this.btn_Insert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Insert.ForeColor = System.Drawing.Color.White;
-            this.btn_Insert.Location = new System.Drawing.Point(401, 514);
+            this.btn_Insert.Location = new System.Drawing.Point(401, 526);
             this.btn_Insert.Name = "btn_Insert";
             this.btn_Insert.Size = new System.Drawing.Size(75, 23);
             this.btn_Insert.TabIndex = 9;
@@ -272,13 +282,13 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "备注：";
             // 
-            // richTextBox1
+            // txt_Remark
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(653, 340);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(203, 52);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.txt_Remark.Location = new System.Drawing.Point(653, 340);
+            this.txt_Remark.Name = "txt_Remark";
+            this.txt_Remark.Size = new System.Drawing.Size(203, 52);
+            this.txt_Remark.TabIndex = 10;
+            this.txt_Remark.Text = "";
             // 
             // label12
             // 
@@ -333,6 +343,7 @@
             this.txt_CurrentMileage.Size = new System.Drawing.Size(100, 21);
             this.txt_CurrentMileage.TabIndex = 5;
             this.txt_CurrentMileage.TextChanged += new System.EventHandler(this.txt_CurrentMileage_TextChanged);
+            this.txt_CurrentMileage.MouseLeave += new System.EventHandler(this.txt_CurrentMileage_MouseLeave);
             // 
             // label15
             // 
@@ -351,6 +362,7 @@
             this.txt_RemainingMileage.ReadOnly = true;
             this.txt_RemainingMileage.Size = new System.Drawing.Size(100, 21);
             this.txt_RemainingMileage.TabIndex = 5;
+            this.txt_RemainingMileage.TextChanged += new System.EventHandler(this.txt_RemainingMileage_TextChanged);
             // 
             // label16
             // 
@@ -375,12 +387,13 @@
             this.btn_Clear.BackColor = System.Drawing.Color.White;
             this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Clear.ForeColor = System.Drawing.Color.Black;
-            this.btn_Clear.Location = new System.Drawing.Point(623, 514);
+            this.btn_Clear.Location = new System.Drawing.Point(623, 526);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(75, 23);
             this.btn_Clear.TabIndex = 11;
             this.btn_Clear.Text = "清空数据";
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // lab_VehicleNumber
             // 
@@ -503,11 +516,91 @@
             this.lab_CurrentMileage.TabIndex = 18;
             this.lab_CurrentMileage.Text = "*";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Location = new System.Drawing.Point(262, 411);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 12);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "开始时间：";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Location = new System.Drawing.Point(587, 411);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 12);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "结束时间：";
+            // 
+            // date_StartDate
+            // 
+            this.date_StartDate.Location = new System.Drawing.Point(327, 406);
+            this.date_StartDate.Name = "date_StartDate";
+            this.date_StartDate.Size = new System.Drawing.Size(200, 21);
+            this.date_StartDate.TabIndex = 19;
+            // 
+            // date_EndDate
+            // 
+            this.date_EndDate.Location = new System.Drawing.Point(653, 406);
+            this.date_EndDate.Name = "date_EndDate";
+            this.date_EndDate.Size = new System.Drawing.Size(203, 21);
+            this.date_EndDate.TabIndex = 20;
+            this.date_EndDate.MouseLeave += new System.EventHandler(this.date_EndDate_MouseLeave);
+            // 
+            // txt_Week
+            // 
+            this.txt_Week.Location = new System.Drawing.Point(327, 443);
+            this.txt_Week.Name = "txt_Week";
+            this.txt_Week.ReadOnly = true;
+            this.txt_Week.Size = new System.Drawing.Size(100, 21);
+            this.txt_Week.TabIndex = 21;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Location = new System.Drawing.Point(286, 447);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 12);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "周期：";
+            // 
+            // lab_RemainingMileage
+            // 
+            this.lab_RemainingMileage.AutoSize = true;
+            this.lab_RemainingMileage.BackColor = System.Drawing.Color.Transparent;
+            this.lab_RemainingMileage.ForeColor = System.Drawing.Color.Red;
+            this.lab_RemainingMileage.Location = new System.Drawing.Point(757, 267);
+            this.lab_RemainingMileage.Name = "lab_RemainingMileage";
+            this.lab_RemainingMileage.Size = new System.Drawing.Size(11, 12);
+            this.lab_RemainingMileage.TabIndex = 18;
+            this.lab_RemainingMileage.Text = "*";
+            // 
+            // lab_RemainingFrequency
+            // 
+            this.lab_RemainingFrequency.AutoSize = true;
+            this.lab_RemainingFrequency.BackColor = System.Drawing.Color.Transparent;
+            this.lab_RemainingFrequency.ForeColor = System.Drawing.Color.Red;
+            this.lab_RemainingFrequency.Location = new System.Drawing.Point(757, 304);
+            this.lab_RemainingFrequency.Name = "lab_RemainingFrequency";
+            this.lab_RemainingFrequency.Size = new System.Drawing.Size(11, 12);
+            this.lab_RemainingFrequency.TabIndex = 18;
+            this.lab_RemainingFrequency.Text = "*";
+            // 
             // InsertVehiclePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 584);
+            this.Controls.Add(this.txt_Week);
+            this.Controls.Add(this.date_EndDate);
+            this.Controls.Add(this.date_StartDate);
+            this.Controls.Add(this.lab_RemainingFrequency);
+            this.Controls.Add(this.lab_RemainingMileage);
             this.Controls.Add(this.lab_CurrentMileage);
             this.Controls.Add(this.lab_MileageToRun);
             this.Controls.Add(this.lab_Odometer);
@@ -520,14 +613,17 @@
             this.Controls.Add(this.lab_VDSNumber);
             this.Controls.Add(this.lab_VehicleNumber);
             this.Controls.Add(this.btn_Clear);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txt_Remark);
             this.Controls.Add(this.btn_Insert);
             this.Controls.Add(this.cmb_Ability);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label12);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -583,7 +679,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_TyreSize;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txt_Remark;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txt_Odometer;
         private System.Windows.Forms.Label label13;
@@ -606,5 +702,13 @@
         private System.Windows.Forms.Label lab_Odometer;
         private System.Windows.Forms.Label lab_MileageToRun;
         private System.Windows.Forms.Label lab_CurrentMileage;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DateTimePicker date_StartDate;
+        private System.Windows.Forms.DateTimePicker date_EndDate;
+        private System.Windows.Forms.TextBox txt_Week;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lab_RemainingMileage;
+        private System.Windows.Forms.Label lab_RemainingFrequency;
     }
 }

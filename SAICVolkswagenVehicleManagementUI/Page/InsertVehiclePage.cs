@@ -151,7 +151,7 @@ namespace SAICVolkswagenVehicleManagementUI.Page
             string strPostVehicleAndAbility = httpClient.Post("/VehicleParameters/InsertVehicleParameters", vehicles);
             //转换成data对象
             Data data = JsonConvert.DeserializeObject<Data>(strPostVehicleAndAbility);
-            if(data.Result.ToString() == "1")
+            if (data.Result.ToString() == "1")
             {
                 MessageBox.Show("添加成功", "恭喜", MessageBoxButtons.OK, MessageBoxIcon.Information); return;
             }
@@ -275,7 +275,7 @@ namespace SAICVolkswagenVehicleManagementUI.Page
             }
             else
             {
-                lab_RemainingMileage.Text = "请输入应跑里程和当前里程"; 
+                lab_RemainingMileage.Text = "请输入应跑里程和当前里程";
                 lab_RemainingFrequency.Text = "请输入应跑里程和当前里程";
                 return;
             }
@@ -301,9 +301,26 @@ namespace SAICVolkswagenVehicleManagementUI.Page
         }
         #endregion
 
+        #region 点击清空事件
         private void btn_Clear_Click(object sender, EventArgs e)
         {
-
+            txt_VehicleNumber.Text = "";
+            txt_VDSNumber.Text = "";
+            txt_ProjectNumber.Text = "";
+            txt_CarModel.Text = "";
+            txt_EngineStructure.Text = "";
+            txt_EngineNumber.Text = "";
+            txt_Transmission.Text = "";
+            txt_Week.Text = "";
+            txt_TyreSize.Text = "";
+            txt_Odometer.Text = "";
+            txt_MileageToRun.Text = "";
+            txt_CurrentMileage.Text = "";
+            txt_RemainingMileage.Text = "";
+            txt_RemainingFrequency.Text = "";
+            txt_Remark.Text = "";
         }
+        #endregion
+
     }
 }

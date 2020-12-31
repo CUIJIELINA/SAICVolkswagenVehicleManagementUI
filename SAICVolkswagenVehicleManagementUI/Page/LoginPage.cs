@@ -12,6 +12,7 @@ using SAICVolkswagenVehicleManagementUI.Common;
 using SAICVolkswagenVehicleManagement_Model;
 using Newtonsoft.Json;
 using static System.Net.Mime.MediaTypeNames;
+using Application = System.Windows.Forms.Application;
 
 namespace SAICVolkswagenVehicleManagementUI.Page
 {
@@ -298,6 +299,17 @@ namespace SAICVolkswagenVehicleManagementUI.Page
         private void LoginPage_SizeChanged(object sender, EventArgs e)
         {
             asc.controlAutoSize(this);
+        }
+
+        private void LoginPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //特别不友好---加个判断，让用户确认，到底要不要退出？ 是--退出；否则--不退出 
+            if (MessageBox.Show("退出系统", "您确定要退出系统吗",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.ExitThread();//有问题？ 弹两次？--解决
+            }
+            else
+                e.Cancel = true;//如果没有这一句，主页面仍然关闭了，但没有退出应用程序
         }
     }
 }

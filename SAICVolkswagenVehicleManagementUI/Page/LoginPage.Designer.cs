@@ -190,6 +190,7 @@
             this.Controls.Add(this.DateTimeNow);
             this.Name = "LoginPage";
             this.Text = "道路试验数字化平台";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginPage_FormClosing);
             this.Load += new System.EventHandler(this.LoginPage_Load);
             this.Shown += new System.EventHandler(this.LoginPage_Shown);
             this.SizeChanged += new System.EventHandler(this.LoginPage_SizeChanged);

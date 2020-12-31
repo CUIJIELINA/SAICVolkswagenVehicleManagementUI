@@ -167,6 +167,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FirstPage";
             this.Text = "道路试验数字化平台";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FirstPage_FormClosing);
             this.Load += new System.EventHandler(this.FirstPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

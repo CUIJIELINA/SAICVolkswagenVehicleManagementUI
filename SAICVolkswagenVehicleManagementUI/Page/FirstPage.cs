@@ -186,10 +186,21 @@ namespace SAICVolkswagenVehicleManagementUI.Page
         /// <param name="e"></param>
         private void link_CaiDan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(this.Menu_treeView.Visible == true)
-                this.Menu_treeView.Visible = false;
+            if(Menu_treeView.Visible == true)
+                Menu_treeView.Visible = false;
             else
-                this.Menu_treeView.Visible = true;
+                Menu_treeView.Visible = true;
+        }
+
+        private void FirstPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //特别不友好---加个判断，让用户确认，到底要不要退出？ 是--退出；否则--不退出 
+            if (MessageBox.Show("您确定要退出系统吗", "退出系统", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.ExitThread();//有问题？ 弹两次？--解决
+            }
+            else
+                e.Cancel = true;//如果没有这一句，主页面仍然关闭了，但没有退出应用程序
         }
     }
 }

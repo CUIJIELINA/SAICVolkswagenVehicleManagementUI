@@ -145,11 +145,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(286, 196);
+            this.label4.Location = new System.Drawing.Point(262, 195);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 6;
-            this.label4.Text = "路段：";
+            this.label4.Text = "试验类型：";
             // 
             // btn_Insert
             // 
